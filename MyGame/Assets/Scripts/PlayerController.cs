@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
 
         ConstrainPlayerPosition();
     }
-
+    //Prevent the player from leaving the top or bottom of the screen
     private void ConstrainPlayerPosition()
     {
         if (transform.position.z < -zBound)
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
         }
     }
-
+    //Moves the player based on arrow key input
     private void MovePlayer()
     {
         float horizontalInput = Input.GetAxis("Horizontal");

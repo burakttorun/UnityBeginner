@@ -42,4 +42,20 @@ public class PlayerController : MonoBehaviour
         playerRB.AddForce(Vector3.forward * verticalInput * speed);
         playerRB.AddForce(Vector3.right * horizontalInput * speed);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Enemy Touch");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("PowerUp"))
+        {
+            Destroy(other.gameObject);
+        }
+    }
 }

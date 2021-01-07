@@ -39,8 +39,8 @@ public class PlayerController : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        playerRB.AddForce(Vector3.forward * verticalInput * speed);
-        playerRB.AddForce(Vector3.right * horizontalInput * speed);
+        transform.Translate(Vector3.forward * verticalInput * speed*Time.deltaTime);
+        transform.Translate(Vector3.right * horizontalInput * speed*Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -17,11 +17,15 @@ public class MoveDown : MonoBehaviour
     void Update()
     {
         //transform.Translate(Vector3.back * speed*Time.deltaTime);
-        objectRB.AddForce(Vector3.forward * -speed);
-        if(transform.position.z < zDestroy)
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        if (transform.position.z < zDestroy)
         {
             Destroy(gameObject);
         }
 
+        //if(gameObject.name == "Enemy4")
+        //{
+        //    objectRB.AddTorque(new Vector3(30, 30, 30));
+        //}
     }
 }

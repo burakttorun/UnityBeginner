@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 8046268325125222408}
   - component: {fileID: 8046268325124177842}
   - component: {fileID: 8046268325480402813}
-  - component: {fileID: 4398454278638851269}
   - component: {fileID: -3597528682213671227}
   - component: {fileID: 2581722198411543479}
-  - component: {fileID: -3207194871458000724}
+  - component: {fileID: 38649716853225573}
   m_Layer: 0
   m_Name: Food_Organic_Carrot
   m_TagString: Untagged
@@ -97,18 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
---- !u!114 &4398454278638851269
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8046268325126337008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f5b05ce104bf0741916ce215718c44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &-3597528682213671227
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -138,7 +125,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-3207194871458000724
+--- !u!114 &38649716853225573
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,6 +134,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8046268325126337008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315574434c23d6a488ec72b35e0e70d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

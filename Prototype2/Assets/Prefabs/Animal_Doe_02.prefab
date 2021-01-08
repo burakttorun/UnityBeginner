@@ -749,9 +749,9 @@ GameObject:
   - component: {fileID: 5735404721142415491}
   - component: {fileID: 5735404721135267799}
   - component: {fileID: 5735404721305215786}
-  - component: {fileID: -6879014427394323436}
   - component: {fileID: 854009813310801912}
-  - component: {fileID: 7134767685742408486}
+  - component: {fileID: 4900188812707573192}
+  - component: {fileID: 3736058688113674814}
   m_Layer: 0
   m_Name: Animal_Doe_02
   m_TagString: Untagged
@@ -815,18 +815,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
---- !u!114 &-6879014427394323436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5735404721142692353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f5b05ce104bf0741916ce215718c44e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &854009813310801912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -840,7 +828,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11232233, y: 0.34514973, z: 0.41568193}
   m_Center: {x: 0.0011136532, y: 0.18910041, z: 0.04911199}
---- !u!114 &7134767685742408486
+--- !u!114 &4900188812707573192
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -849,7 +837,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 5735404721142692353}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 315574434c23d6a488ec72b35e0e70d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3736058688113674814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5735404721142692353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5735404721142755839

@@ -6,8 +6,10 @@ public class ObjectPooler : MonoBehaviour
 {
     public static ObjectPooler SharedInstance;
     public List<GameObject> pooledObjects;
-    public GameObject objectToPool;
-    public int amountToPool;
+    [SerializeField]
+    private GameObject objectToPool;
+    [SerializeField]
+    private int amountToPool;
 
     void Awake()
     {

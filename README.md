@@ -65,7 +65,17 @@ The balloon jumps when the space key is pressed.The goal is to move forward with
 
 
 
+# Unity-ProtoType 4
 
+A project created with  assets of junior pathway published by Unity:
+
+The package contains all of the ball textures ,shapes for powerup and powerup indicater and platform.
+
+![](ProtoType4.gif)
+
+
+
+The goal of the prototype is to keep the ball assigned as the player on the platform without falling on the platform.The camera rotates around the platform with the left-right arrow keys , the platform seems to be rotating and in this way the local axis of the ball changes.Enemy balls are created in random locations and they follow the player ball and try to drop it from the platform.The number of enemy balls increases one per turn.Powerup appears in random locations and strengthens the player ball for a while.When the player takes the powerup, the indicator appears at the bottom of the player.The player ball is controlled with the up and down arrow keys.
 
 
 

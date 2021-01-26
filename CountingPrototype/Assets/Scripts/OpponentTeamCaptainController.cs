@@ -11,8 +11,15 @@ public class OpponentTeamCaptainController : MonoBehaviour , IMoveToPlayer
 
     float followingDistance = 6f;
     bool isChangeDirection = false;
+    Animator opponentPlayerCaptainAnim;
+
+    public void AnimatorController()
+    {
+        opponentPlayerCaptainAnim.SetFloat("Speed_f", 0.75f);
+    }
     public void MoveToPlayer()
     {
+        AnimatorController();
         if(!isChangeDirection)
         {
             if (transform.position.z >= followingDistance)
@@ -30,7 +37,7 @@ public class OpponentTeamCaptainController : MonoBehaviour , IMoveToPlayer
     // Start is called before the first frame update
     void Start()
     {
-        
+        opponentPlayerCaptainAnim = GetComponent<Animator>();
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
     }
 

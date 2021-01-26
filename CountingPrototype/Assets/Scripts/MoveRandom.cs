@@ -9,7 +9,6 @@ public class MoveRandom : MonoBehaviour
     float maxDistance=30f;
     protected void MoveAxisX(float randomDirection)
     {
-        Debug.Log(randomDirection);
         transform.Translate(Vector3.right * moveSpeedDirectionX * randomDirection *Time.deltaTime);
     }
 
@@ -29,4 +28,6 @@ public class MoveRandom : MonoBehaviour
 public interface IMoveToPlayer
 {
     void MoveToPlayer();
+
+    void AnimatorController();
 }

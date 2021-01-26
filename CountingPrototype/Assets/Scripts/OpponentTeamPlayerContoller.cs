@@ -9,9 +9,21 @@ public class OpponentTeamPlayerContoller : MoveRandom , IMoveToPlayer
     float changeDirectionTime = 2f;
     float time=2;
     int randomDirection = 0;
+    Animator opponentPlayerAnim;
+
+    private void Start()
+    {
+        opponentPlayerAnim = GetComponent<Animator>();
+    }
+    public void AnimatorController()
+    {
+        opponentPlayerAnim.SetFloat("Speed_f", 0.50f);
+    }
+
     public void MoveToPlayer()
     {
         transform.Translate(Vector3.forward * moveSpeedDirectionZ *Time.deltaTime );
+        AnimatorController();
     }
 
     // Update is called once per frame

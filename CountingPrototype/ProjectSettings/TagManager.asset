@@ -9,6 +9,7 @@ TagManager:
   - OpponentTeamPlayer
   - Tribune
   - Ground
+  - OpponentTeamCaptain
   layers:
   - Default
   - TransparentFX

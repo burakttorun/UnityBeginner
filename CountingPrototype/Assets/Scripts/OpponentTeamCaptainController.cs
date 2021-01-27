@@ -2,24 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpponentTeamCaptainController : MonoBehaviour , IMoveToPlayer
+public class OpponentTeamCaptainController : MoveRandom, IMoveToPlayer
 {
     Transform playerTransform;
 
-    [SerializeField]
-    float moveSpeed;
+    
+    public float moveSpeedDirectionZ;
 
     float followingDistance = 6f;
     bool isChangeDirection = false;
-    Animator opponentPlayerCaptainAnim;
 
-    public void AnimatorController()
+    [SerializeField]
+    ParticleSystem particleExplosion;
+
+    public void  MoveToPlayer()
     {
-        opponentPlayerCaptainAnim.SetFloat("Speed_f", 0.75f);
-    }
-    public void MoveToPlayer()
-    {
-        AnimatorController();
+        base.AnimatorController(0.75f);
         if(!isChangeDirection)
         {
             if (transform.position.z >= followingDistance)
@@ -31,13 +29,12 @@ public class OpponentTeamCaptainController : MonoBehaviour , IMoveToPlayer
             }
         }
         
-        transform.Translate(Vector3.forward*moveSpeed*Time.deltaTime);
+        transform.Translate(Vector3.forward* moveSpeedDirectionZ * Time.deltaTime);
     }
 
     // Start is called before the first frame update
     void Start()
-    {
-        opponentPlayerCaptainAnim = GetComponent<Animator>();
+    {   
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
     }
 
@@ -45,5 +42,13 @@ public class OpponentTeamCaptainController : MonoBehaviour , IMoveToPlayer
     void Update()
     {
         MoveToPlayer();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            particleExplosion.Play();
+        }
     }
 }

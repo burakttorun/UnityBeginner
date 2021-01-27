@@ -4,26 +4,19 @@ using UnityEngine;
 
 public class OpponentTeamPlayerContoller : MoveRandom , IMoveToPlayer
 {
-    [SerializeField]
-    float moveSpeedDirectionZ;
+   
+    public float moveSpeedDirectionZ;
     float changeDirectionTime = 2f;
     float time=2;
     int randomDirection = 0;
-    Animator opponentPlayerAnim;
-
-    private void Start()
-    {
-        opponentPlayerAnim = GetComponent<Animator>();
-    }
-    public void AnimatorController()
-    {
-        opponentPlayerAnim.SetFloat("Speed_f", 0.50f);
-    }
+    float spawnRangeX = 30;
+    [SerializeField]
+    ParticleSystem particleExplosion;
 
     public void MoveToPlayer()
     {
         transform.Translate(Vector3.forward * moveSpeedDirectionZ *Time.deltaTime );
-        AnimatorController();
+        base.AnimatorController(0.5f);
     }
 
     // Update is called once per frame
@@ -38,7 +31,15 @@ public class OpponentTeamPlayerContoller : MoveRandom , IMoveToPlayer
         }
 
         base.MoveAxisX(randomDirection);
-        base.DetermineDistance();
+        base.DetermineDistance(spawnRangeX);
         MoveToPlayer();
+     
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            particleExplosion.Play();
+        }
     }
 }

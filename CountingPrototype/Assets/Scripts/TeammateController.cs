@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeammateController : MoveRandom
+public class TeammateController : NpcController
 {
     float npcSpeed = 0.5f;
     float time = 5;
@@ -13,29 +13,34 @@ public class TeammateController : MoveRandom
     float positionZ = 42;
     [SerializeField]
     ParticleSystem[] particleFireworks;
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
-
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        if (gameManager.isGameActive)
+        {
 
-        if (time > changeDirectionTime)
-        {   
-            if(time>changeAnimTime)
-                gameObject.GetComponent<MoveRandom>().CatchAnimation(false);
-            randomDirection = Random.Range(-1, 2);
-            time = 0;
+
+            time += Time.deltaTime;
+
+            if (time > changeDirectionTime)
+            {
+                if (time > changeAnimTime)
+                    gameObject.GetComponent<NpcController>().CatchAnimation(false);
+                randomDirection = Random.Range(-1, 2);
+                time = 0;
+            }
+
+            base.MoveAxisX(randomDirection);
+            base.AnimatorController(npcSpeed);
+            base.DetermineDistance(spawnRangeX);
         }
-
-        base.MoveAxisX(randomDirection);
-        base.AnimatorController(npcSpeed);
-        base.DetermineDistance(spawnRangeX);
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -44,14 +49,15 @@ public class TeammateController : MoveRandom
         {
             foreach (var item in particleFireworks)
             {
-                item.Play();
+                item.Play(); //Fireworks effect starts when teammate catches the ball.
             }
-            gameObject.GetComponent<MoveRandom>().CatchAnimation(true);
+            gameObject.GetComponent<NpcController>().CatchAnimation(true);
             StartCoroutine("DelayDisplacement");
             other.gameObject.SetActive(false);
         }
     }
 
+    //Method for delaying teammate relocation.
     IEnumerator DelayDisplacement()
     { 
         yield return new WaitForSeconds(1.5f);
